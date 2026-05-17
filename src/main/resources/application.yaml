@@ -1,3 +1,11 @@
 spring:
   application:
     name: rtgs_simulator
+
+
+app:
+  aeron:
+    channel: aeron:ipc
+    streamId: 1001
+    pollFragmentLimit: 10
+    pollInterval: 500

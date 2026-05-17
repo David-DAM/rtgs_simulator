@@ -49,3 +49,22 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+//Add JVM args to run Spring Boot
+tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+    jvmArgs = listOf(
+        "--add-opens", "java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-opens", "java.base/sun.nio.ch=ALL-UNNAMED",
+        "--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-exports", "java.base/sun.nio.ch=ALL-UNNAMED"
+    )
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs = listOf(
+        "--add-opens", "java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-opens", "java.base/sun.nio.ch=ALL-UNNAMED",
+        "--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-exports", "java.base/sun.nio.ch=ALL-UNNAMED"
+    )
+}
