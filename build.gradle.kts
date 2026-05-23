@@ -32,11 +32,13 @@ dependencies {
     implementation("tools.jackson.module:jackson-module-kotlin")
     implementation("io.aeron:aeron-all:$aeron")
     implementation("org.agrona:agrona:$agrona")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
+    runtimeOnly("io.r2dbc:r2dbc-h2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

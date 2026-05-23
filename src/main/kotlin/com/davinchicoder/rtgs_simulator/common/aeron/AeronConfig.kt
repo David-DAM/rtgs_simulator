@@ -1,4 +1,4 @@
-package com.davinchicoder.rtgs_simulator.aeron
+package com.davinchicoder.rtgs_simulator.common.aeron
 
 import io.aeron.Aeron
 import io.aeron.ConcurrentPublication

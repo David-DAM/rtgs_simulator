@@ -1,7 +1,15 @@
 spring:
   application:
     name: rtgs_simulator
+  r2dbc:
+    url: r2dbc:h2:mem:///rtgsdb
+    username: user
+    password: password
 
+
+h2:
+  console:
+    enabled: true
 
 app:
   aeron:

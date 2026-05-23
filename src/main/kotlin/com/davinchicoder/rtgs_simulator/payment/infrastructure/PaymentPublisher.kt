@@ -1,6 +1,6 @@
-package com.davinchicoder.rtgs_simulator.payment
+package com.davinchicoder.rtgs_simulator.payment.infrastructure
 
-import com.davinchicoder.rtgs_simulator.aeron.AeronMessage
+import com.davinchicoder.rtgs_simulator.common.DomainEvent
 import com.davinchicoder.rtgs_simulator.common.logger
 import io.aeron.ConcurrentPublication
 import org.agrona.concurrent.UnsafeBuffer
@@ -17,11 +17,11 @@ class PaymentPublisher(
         private val log = logger<PaymentPublisher>()
     }
 
-    fun publish(message: AeronMessage) {
+    fun publish(event: DomainEvent) {
 
-        log.info("PUBLISH: $message")
+        log.info("Publish domain event: $event")
 
-        val serializedMessage = objectMapper.writeValueAsString(message)
+        val serializedMessage = objectMapper.writeValueAsString(event)
 
         val buffer = UnsafeBuffer(ByteArray(1024))
 
@@ -29,6 +29,6 @@ class PaymentPublisher(
 
         publication.offer(buffer, 0, serializedMessage.length)
 
-        log.info("PUBLISHED: $message")
+        log.info("Published domain event: $event")
     }
 }

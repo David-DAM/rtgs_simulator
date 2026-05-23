@@ -1,4 +1,4 @@
-package com.davinchicoder.rtgs_simulator.aeron
+package com.davinchicoder.rtgs_simulator.common.aeron
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration
